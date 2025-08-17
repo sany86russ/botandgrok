@@ -42,16 +42,24 @@ async def discover_symbols(cfg: Dict, api: Any) -> Tuple[List[str], List[str], L
             spread_bps = (top_ask - top_bid) / top_bid * 10000 if top_bid > 0 else float("inf")
             if spread_bps > cfg.get("filters", {}).get("max_spread_bps", 5):
                 continue
+            kl_4h = await api.fetch_klines(sym, "4h", 2)
             kl_15m = await api.fetch_klines(sym, "15m", 672)
             kl_1h = await api.fetch_klines(sym, "1h", 672)
-            kl_4h = await api.fetch_klines(sym, "4h", 672)
+            kl_4h_long = await api.fetch_klines(sym, "4h", 672)
             kl_1d = await api.fetch_klines(sym, "1d", 672)
-            inds = compute_indicators([], [], kl_15m, kl_1h, kl_4h, kl_1d, [])
+            inds = compute_indicators([], [], kl_15m, kl_1h, kl_4h_long, kl_1d, [])
             atr_pct = inds.get("atr_pct_15m", 0.0)
             adx = inds.get("adx_15m", 0.0)
             vratio = inds.get("vratio_15m", 1.0)
             ema50 = inds.get("ema50_4h", inds.get("close_4h", [0])[-1])
             ema200 = inds.get("ema200_4h", inds.get("close_4h", [0])[-1])
+            if kl_4h and len(kl_4h) >= 2:
+                vol_4h = float_safe(kl_4h[-1][5])
+                vol_24h = float_safe(p["quoteVolume"]) / 6
+                if vol_4h > 1.5 * vol_24h:
+                    filtered.append(p)
+                    strategy_symbols["scalping"].append(sym)
+                    strategy_symbols["intraday"].append(sym)
             if cfg.get("filters", {}).get("atr_pct_sweet_min", 0.4) <= atr_pct <= cfg.get("filters", {}).get("atr_pct_sweet_max", 3.0):
                 filtered.append(p)
             for strat, filters in cfg.get("discovery", {}).get("strategy_filters", {}).items():
