@@ -151,6 +151,8 @@ async def main():
     scan_interval = cfg.get("scan_interval_sec", 15)
     last_analysis = 0
     analysis_interval = 3600
+    kline_cache = {}
+    cache_timeout = 300  # 5 минут
 
     price_data = {}
     def price_callback(message):
@@ -191,19 +193,24 @@ async def main():
                             continue
                         if time.time() < recent_opp.get(opp_key, 0):
                             continue
-                        await rate_limiter.acquire()
-                        klines = await asyncio.gather(
-                            api.fetch_klines(sym, "1m", 672),
-                            api.fetch_klines(sym, "5m", 672),
-                            api.fetch_klines(sym, "15m", 672),
-                            api.fetch_klines(sym, "1h", 672),
-                            api.fetch_klines(sym, "4h", 672),
-                            api.fetch_klines(sym, "1d", 672),
-                            api.fetch_klines(sym, "1w", 672)
-                        )
-                        oi_hist = await api.fetch_oi_hist(sym, "15m", 96)
+                        cache_key = f"{sym}:{strat_name}"
+                        if cache_key in kline_cache and time.time() - kline_cache[cache_key]["ts"] < cache_timeout:
+                            klines = kline_cache[cache_key]["klines"]
+                            oi_hist = kline_cache[cache_key]["oi_hist"]
+                        else:
+                            klines = await asyncio.gather(
+                                api.fetch_klines(sym, "1m", 672),
+                                api.fetch_klines(sym, "5m", 672),
+                                api.fetch_klines(sym, "15m", 672),
+                                api.fetch_klines(sym, "1h", 672),
+                                api.fetch_klines(sym, "4h", 672),
+                                api.fetch_klines(sym, "1d", 672),
+                                api.fetch_klines(sym, "1w", 672)
+                            )
+                            oi_hist = await api.fetch_oi_hist(sym, "15m", 96)
+                            kline_cache[cache_key] = {"klines": klines, "oi_hist": oi_hist, "ts": time.time()}
                         inds = compute_indicators(*klines)
-                        inds.update(compute_indicators_extras(klines[2]))  # 15m
+                        inds.update(compute_indicators_extras(klines[2]))
                         regime = market_regime(inds)
                         w = strategy_weight(cfg, strat_name)
                         s = await strat.generate_signal(session, sym, *klines, oi_hist)
