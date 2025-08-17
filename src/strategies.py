@@ -7,6 +7,8 @@ import pandas as pd
 from ta.momentum import RSIIndicator, StochasticOscillator
 from ta.trend import MACD, EMAIndicator
 from ta.volatility import BollingerBands, AverageTrueRange
+from ta.volume import OnBalanceVolumeIndicator
+from ta.trend import IchimokuIndicator
 
 log = logging.getLogger("strategies")
 
@@ -27,6 +29,8 @@ class ScalpingStrategy:
         ema5 = inds.get("ema5_5m", inds["close_5m"][-1])
         ema20 = inds.get("ema20_5m", inds["close_5m"][-1])
         macd = inds.get("macd_5m", 0.0)
+        adx_15m = inds.get("adx_15m", 0.0)
+        obv = inds.get("obv_5m", 0)
         score = 0
         reasons = []
         rsi_threshold = max(self.cfg.get("rsi_th", 20), 50 - atr_pct * 100)
@@ -45,6 +49,12 @@ class ScalpingStrategy:
         if macd > 0:
             score += 1
             reasons.append("MACD bullish")
+        if adx_15m > 20:
+            score += 1
+            reasons.append("ADX 15m confirms trend")
+        if obv > 0:
+            score += 1
+            reasons.append("OBV bullish")
         if volume_breakout_ok(inds.get("vratio_5m", 1.0), inds.get("bbw_pctile_5m", 50.0), self.cfg)[0]:
             score += 2
             reasons.append("Volume breakout")
@@ -57,7 +67,8 @@ class ScalpingStrategy:
                 "reasons": reasons,
                 "atr_pct": atr_pct,
                 "adx": inds.get("adx_5m", 0.0),
-                "corr_btc": 0.7
+                "corr_btc": inds.get("corr_btc", 0.7),
+                "obv": obv
             }
         return {}
 
@@ -75,6 +86,7 @@ class IntradayStrategy:
         atr_pct = inds.get("atr_pct_15m", 0.0)
         macd = inds.get("macd_15m", 0.0)
         rsi = inds.get("rsi_15m", 50.0)
+        obv = inds.get("obv_15m", 0)
         score = 0
         reasons = []
         if adx > self.cfg.get("adx_min", 25):
@@ -92,10 +104,13 @@ class IntradayStrategy:
         if rsi > 50:
             score += 1
             reasons.append("RSI bullish")
+        if obv > 0:
+            score += 1
+            reasons.append("OBV bullish")
         if volume_breakout_ok(inds.get("vratio_15m", 1.0), inds.get("bbw_pctile_15m", 50.0), self.cfg)[0]:
             score += 2
             reasons.append("Volume breakout")
-        if score >= self.cfg.get("min_score", 4):
+        if score >= self.cfg.get("min_score", 3.5):
             return {
                 "strategy_type": "INTRADAY",
                 "symbol": symbol,
@@ -104,7 +119,8 @@ class IntradayStrategy:
                 "reasons": reasons,
                 "atr_pct": atr_pct,
                 "adx": adx,
-                "corr_btc": 0.7
+                "corr_btc": inds.get("corr_btc", 0.7),
+                "obv": obv
             }
         return {}
 
@@ -122,6 +138,8 @@ class SwingStrategy:
         rsi = inds.get("rsi_4h", 50.0)
         macd = inds.get("macd_4h", 0.0)
         fib_618 = inds.get("fib_618_4h", inds["close_4h"][-1])
+        obv = inds.get("obv_4h", 0)
+        ichimoku = inds.get("ichimoku_4h", 0)
         score = 0
         reasons = []
         if ema50 > ema200:
@@ -136,7 +154,13 @@ class SwingStrategy:
         if abs(inds["close_4h"][-1] - fib_618) / fib_618 < 0.01:
             score += 1
             reasons.append("Near Fibonacci 61.8%")
-        if score >= self.cfg.get("min_score", 3):
+        if obv > 0:
+            score += 1
+            reasons.append("OBV bullish")
+        if ichimoku > inds["close_4h"][-1]:
+            score += 1
+            reasons.append("Above Ichimoku Cloud")
+        if score >= self.cfg.get("min_score", 2.5):
             return {
                 "strategy_type": "SWING",
                 "symbol": symbol,
@@ -145,7 +169,9 @@ class SwingStrategy:
                 "reasons": reasons,
                 "atr_pct": inds.get("atr_pct_4h", 0.0),
                 "adx": inds.get("adx_4h", 0.0),
-                "corr_btc": 0.7
+                "corr_btc": inds.get("corr_btc", 0.7),
+                "obv": obv,
+                "ichimoku": "Above" if ichimoku > inds["close_4h"][-1] else "Below"
             }
         return {}
 
@@ -161,6 +187,8 @@ class PositionStrategy:
         close = inds["close_1d"][-1]
         ema200 = float_safe(inds.get("ema200_1d", close))
         rsi = inds.get("rsi_1d", 50.0)
+        obv = inds.get("obv_1d", 0)
+        ichimoku = inds.get("ichimoku_1d", 0)
         score = 0
         reasons = []
         if close > ema200:
@@ -169,6 +197,12 @@ class PositionStrategy:
         if rsi > 50:
             score += 1
             reasons.append("RSI bullish")
+        if obv > 0:
+            score += 1
+            reasons.append("OBV bullish")
+        if ichimoku > close:
+            score += 1
+            reasons.append("Above Ichimoku Cloud")
         if score >= self.cfg.get("min_score", 2):
             return {
                 "strategy_type": "POSITION",
@@ -178,7 +212,9 @@ class PositionStrategy:
                 "reasons": reasons,
                 "atr_pct": inds.get("atr_pct_1d", 0.0),
                 "adx": inds.get("adx_1d", 0.0),
-                "corr_btc": 0.7
+                "corr_btc": inds.get("corr_btc", 0.7),
+                "obv": obv,
+                "ichimoku": "Above" if ichimoku > close else "Below"
             }
         return {}
 
@@ -213,7 +249,7 @@ class ArbitrageStrategy:
                 "reasons": reasons,
                 "atr_pct": inds.get("atr_pct_5m", 0.0),
                 "adx": inds.get("adx_5m", 0.0),
-                "corr_btc": 0.7
+                "corr_btc": inds.get("corr_btc", 0.7)
             }
         return {}
 
