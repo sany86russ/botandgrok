@@ -219,10 +219,6 @@ class PositionStrategy:
         return {}
 
 class ArbitrageStrategy:
-    def __init__(self, cfg: Dict, api):
-        self.cfg = cfg.get("strategies", {}).get("arbitrage", {})
-        self.api = api
-
     async def generate_signal(self, session, symbol: str, kl_1m: List, kl_5m: List, kl_15m: List, kl_1h: List, kl_4h: List, kl_1d: List, kl_1w: List, oi_hist: List) -> Dict:
         inds = compute_indicators(kl_1m, kl_5m, kl_15m, kl_1h, kl_4h, kl_1d, kl_1w)
         if not inds:
@@ -230,7 +226,9 @@ class ArbitrageStrategy:
         spot_price = await self.api.fetch_spot_price(symbol)
         futures_price = inds["close_5m"][-1]
         basis = abs(futures_price - spot_price) / spot_price if spot_price > 0 else 0
-        z_score = float_safe(inds.get("zscore_basis", 0.0))
+        # Расчёт Z-score
+        basis_series = pd.Series([abs(f - s) / s for f, s in zip(inds["close_5m"][-20:], [await self.api.fetch_spot_price(symbol) for _ in range(20)]) if s > 0])
+        z_score = (basis - basis_series.mean()) / basis_series.std() if basis_series.std() > 0 else 0
         score = 0
         reasons = []
         if basis > self.cfg.get("basis_th", 0.0006):
@@ -249,7 +247,8 @@ class ArbitrageStrategy:
                 "reasons": reasons,
                 "atr_pct": inds.get("atr_pct_5m", 0.0),
                 "adx": inds.get("adx_5m", 0.0),
-                "corr_btc": inds.get("corr_btc", 0.7)
+                "corr_btc": inds.get("corr_btc", 0.7),
+                "zscore_basis": z_score
             }
         return {}
 
