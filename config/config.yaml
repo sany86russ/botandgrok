@@ -12,8 +12,8 @@ follow_lookahead_min: 60
 api:
   provider: bingx
   bingx:
-    api_key: ""
-    secret: ""
+    api_key: "ВАШ_API_KEY"
+    secret: "ВАШ_SECRET_KEY"
   binance:
     api_key: ""
     secret: ""
@@ -24,8 +24,8 @@ risk:
   max_leverage: 45
   risk_per_trade_pct: 0.5
   rr_target: 2.0
-  max_open_signals: 2
-  max_signals_per_day: 10
+  max_open_signals: 3
+  max_signals_per_day: 20
   max_risk_pct: 0.005
   min_notional_usdt: 5.0
   trailing_init_mult_atr: 2.5
@@ -52,8 +52,8 @@ filters:
 
 # Telegram
 telegram:
-  bot_token: ""
-  chat_id: ""
+  bot_token: "ВАШ_BOT_TOKEN"
+  chat_id: "ВАШ_CHAT_ID"
   include_json: true
   verbose: false
 
@@ -83,14 +83,14 @@ strategies:
     bbw_pctile_min: 30
     atr_mult_sl: 1.5
     funding_blackout_min: 10
-    min_score: 4
+    min_score: 3.5
   swing:
     enabled: true
     ema_cross: true
     rsi_min: 50
     atr_mult_sl: 2.0
     hold_days_max: 7
-    min_score: 3
+    min_score: 2.5
   position:
     enabled: true
     ema_period: 200
