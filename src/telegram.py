@@ -37,8 +37,12 @@ async def send_signal(cfg: Dict, payload: Dict[str, Any]):
         f"Score: {payload['score']:.2f}\n"
         f"Причины: {', '.join(payload.get('reasons', []))}\n"
         f"ATR%: {payload['atr_pct']:.2f}%\n"
-        f"ADX: {payload['adx']:.2f}"
+        f"ADX: {payload['adx']:.2f}\n"
+        f"Корреляция с BTC: {payload['corr_btc']:.2f}"
     )
+    if payload['strategy_type'] in ["SWING", "POSITION"]:
+        message += f"\nOBV: {payload.get('obv', 0):.2f}"
+        message += f"\nIchimoku: {payload.get('ichimoku', 'N/A')}"
     async with httpx.AsyncClient() as client:
         try:
             await client.post(
