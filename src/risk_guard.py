@@ -1,71 +1,55 @@
-import json
-import os
-import time
-from typing import Dict
+from typing import Dict, List
+import logging
+from src.utils import float_safe
+from src.correlation import compute_correlation
 
-_STATE = {"date": "", "R_day": 0.0, "loss_streak": 0, "cooldown_until": 0.0, "signals_sent": 0, "last_outcomes": {}}
+log = logging.getLogger("risk_guard")
 
-def _state_path(cfg: Dict) -> str:
-    d = cfg.get("paths", {}).get("state_dir", ".")
-    os.makedirs(d, exist_ok=True)
-    return os.path.join(d, "risk_state.json")
+async def risk_guard(cfg: Dict, api: Any, risk_state: Dict, signal: Dict, open_signals: Dict) -> bool:
+    """
+    Проверяет сигнал на дополнительные риски перед отправкой.
+    Возвращает True, если сигнал проходит проверки, иначе False.
+    """
+    symbol = signal["symbol"]
+    atr_pct = signal.get("atr_pct", 0.0)
+    deposit = cfg.get("deposit_usdt", 1000)
 
-def load_state(cfg: Dict) -> Dict:
-    p = _state_path(cfg)
-    if os.path.exists(p):
-        try:
-            return json.load(open(p, "r", encoding="utf-8"))
-        except Exception:
-            pass
-    return dict(_STATE)
-
-def save_state(cfg: Dict, st: Dict):
-    json.dump(st, open(_state_path(cfg), "w", encoding="utf-8"))
-
-def new_day(st: Dict):
-    from datetime import datetime
-    today = datetime.utcnow().strftime("%Y-%m-%d")
-    if st.get("date") != today:
-        st.update({"date": today, "R_day": 0.0, "loss_streak": 0, "cooldown_until": 0.0, "signals_sent": 0})
-
-def can_signal(cfg: Dict, st: Dict) -> bool:
-    guard = cfg.get("risk", {}).get("guard", {})
-    now = time.time()
-    if st.get("cooldown_until", 0.0) > now:
+    # 1. Проверка максимальной просадки
+    max_drawdown_pct = cfg.get("risk", {}).get("max_drawdown_pct", 5.0)
+    total_loss = sum(abs(t["risk_usdt"]) for t in open_signals.values() if t["last_price"] < t["sl"])
+    if total_loss / deposit * 100 > max_drawdown_pct:
+        log.warning(f"Signal for {symbol} blocked: max drawdown ({total_loss/deposit*100:.2f}%) exceeded")
         return False
-    max_signals = guard.get("max_signals_per_day", 50)
-    if st.get("signals_sent", 0) >= max_signals:
+
+    # 2. Проверка корреляции с открытыми позициями
+    max_corr = cfg.get("risk", {}).get("max_correlation", 0.9)
+    btc_klines = await api.fetch_klines("BTCUSDT", "15m", 20)
+    symbol_klines = await api.fetch_klines(symbol, "15m", 20)
+    corr = await compute_correlation(api, symbol, btc_klines, symbol_klines)
+    for open_signal in open_signals.values():
+        if open_signal["symbol"] != symbol:
+            open_klines = await api.fetch_klines(open_signal["symbol"], "15m", 20)
+            open_corr = await compute_correlation(api, open_signal["symbol"], btc_klines, open_klines)
+            if abs(corr - open_corr) > max_corr:
+                log.warning(f"Signal for {symbol} blocked: high correlation ({corr:.2f}) with {open_signal['symbol']}")
+                return False
+
+    # 3. Проверка волатильности
+    max_atr_pct = cfg.get("filters", {}).get("atr_pct_sweet_max", 3.0)
+    if atr_pct > max_atr_pct:
+        log.warning(f"Signal for {symbol} blocked: high volatility (ATR%={atr_pct:.2f})")
         return False
+
+    # 4. Проверка ликвидности
+    depth = await api.exchange.fetch_order_book(symbol, limit=5)
+    if not depth or not depth.get("bids") or not depth.get("asks"):
+        log.warning(f"Signal for {symbol} blocked: insufficient order book depth")
+        return False
+    top_bid = float_safe(depth["bids"][0][0]) if depth["bids"] else 0.0
+    top_ask = float_safe(depth["asks"][0][0]) if depth["asks"] else 0.0
+    spread_bps = (top_ask - top_bid) / top_bid * 10000 if top_bid > 0 else float("inf")
+    if spread_bps > cfg.get("filters", {}).get("max_spread_bps", 5):
+        log.warning(f"Signal for {symbol} blocked: high spread ({spread_bps:.2f} bps)")
+        return False
+
     return True
-
-def register_signal_sent(st: Dict):
-    st["signals_sent"] = int(st.get("signals_sent", 0)) + 1
-
-def register_trade_result(cfg: Dict, st: Dict, R: float):
-    guard = cfg.get("risk", {}).get("guard", {})
-    st["R_day"] = float(st.get("R_day", 0.0) + R)
-    if R < 0:
-        st["loss_streak"] = int(st.get("loss_streak", 0) + 1)
-    else:
-        st["loss_streak"] = 0
-
-    max_dd_R = guard.get("stop_day_R", -3.0)
-    max_mdd_pct = guard.get("max_mdd_pct", 20.0)
-    if st["R_day"] <= max_dd_R or st["R_day"] <= -max_mdd_pct / 100 * cfg.get("deposit_usdt", 1000):
-        st["cooldown_until"] = time.time() + guard.get("cooldown_sec_after_stop", 8*3600)
-    elif st["loss_streak"] >= guard.get("loss_streak_cooldown", 3):
-        st["cooldown_until"] = time.time() + guard.get("cooldown_sec_after_streak", 1800)
-
-def outcome_cooldown(cfg: Dict, st: Dict, symbol: str, outcome: str):
-    g = cfg.get("risk", {}).get("guard", {})
-    now = time.time()
-    after_tp = g.get("cooldown_after_tp_sec", 0)
-    after_sl = g.get("cooldown_after_sl_sec", 0)
-    if outcome == "TP" and after_tp > 0:
-        st["last_outcomes"][symbol] = now + after_tp
-    elif outcome == "SL" and after_sl > 0:
-        st["last_outcomes"][symbol] = now + after_sl
-
-def is_symbol_blocked(st: Dict, symbol: str) -> bool:
-    ts = st.get("last_outcomes", {}).get(symbol, 0.0)
-    return time.time() < ts
