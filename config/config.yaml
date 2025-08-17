@@ -1,0 +1,172 @@
+# Основные настройки
+symbols:
+  - BTCUSDT
+  - ETHUSDT
+  - SOLUSDT
+scan_interval_sec: 15
+deposit_usdt: 66
+follow_fast_poll_sec: 3
+follow_lookahead_min: 60
+
+# API
+api:
+  provider: bingx
+  bingx:
+    api_key: ""
+    secret: ""
+  binance:
+    api_key: ""
+    secret: ""
+
+# Риск-менеджмент
+risk:
+  min_leverage: 20
+  max_leverage: 45
+  risk_per_trade_pct: 0.5
+  rr_target: 2.0
+  max_open_signals: 2
+  max_signals_per_day: 10
+  max_risk_pct: 0.005
+  min_notional_usdt: 5.0
+  trailing_init_mult_atr: 2.5
+  trailing_step_mult_atr: 0.8
+  partial_tp:
+    enable: true
+    tp1_atr: 1.0
+    tp2_atr: 2.0
+    be_after_tp1: true
+    fraction1: 0.5
+    fraction2: 0.3
+
+# Фильтры
+filters:
+  adx_min_15m: 25
+  min_quote_volume_24h: 30000000
+  vwap_ema15_tolerance_bps: 30
+  bbw_squeeze_pctile: 20
+  volume_breakout_mult: 1.7
+  max_spread_bps: 5
+  min_oi_usdt: 80000000
+  atr_pct_sweet_min: 0.4
+  atr_pct_sweet_max: 3.0
+
+# Telegram
+telegram:
+  bot_token: ""
+  chat_id: ""
+  include_json: true
+  verbose: false
+
+# Сетевые настройки
+network:
+  max_retries: 3
+  backoff_base_ms: 250
+  backoff_cap_ms: 3000
+  timeouts:
+    klines: 10
+    oi_hist: 15
+    ws_heartbeat: 30
+
+# Стратегии
+strategies:
+  scalping:
+    enabled: true
+    rsi_th: 20
+    stoch_th: 20
+    l2_imbalance_th: 1.5
+    max_hold_sec: 300
+    atr_mult_sl: 1.0
+    min_score: 5
+  intraday:
+    enabled: true
+    adx_min: 25
+    bbw_pctile_min: 30
+    atr_mult_sl: 1.5
+    funding_blackout_min: 10
+    min_score: 4
+  swing:
+    enabled: true
+    ema_cross: true
+    rsi_min: 50
+    atr_mult_sl: 2.0
+    hold_days_max: 7
+    min_score: 3
+  position:
+    enabled: true
+    ema_period: 200
+    atr_mult_sl: 2.2
+    leverage_max: 3
+    hold_days_max: 30
+    min_score: 2
+  arbitrage:
+    enabled: true
+    basis_th: 0.0006
+    z_score_min: 1.5
+    atr_mult_sl: 0.5
+    min_score: 4
+  hedging:
+    enabled: true
+    beta_th: 0.8
+    max_spot_exposure: 1000
+    atr_mult_sl: 1.0
+    min_score: 3
+
+# Логирование
+logging:
+  level: INFO
+  file_path: logs/
+
+# Путь для хранения данных
+paths:
+  state_dir: state
+
+# Настройки бэктестинга
+testing:
+  dry_run: true
+  backtest:
+    enable: true
+    periods:
+    - start: 2024-01-01
+      end: 2024-06-30
+    slippage_bps: 5
+    fees_pct: 0.05
+    interval: 15m
+    limit: 1000
+
+# Консенсус
+consensus:
+  max_per_symbol: 1
+  per_symbol_cooldown_sec: 600
+  anti_reverse_min_sec: 1800
+  cooldown_same_sec: 600
+  cooldown_opp_sec: 1800
+
+# Парсинг монет
+discovery:
+  enable: true
+  interval_min: 15
+  top_n: 50
+  hard_filters:
+    min_quote_vol_usdt: 30000000
+    min_trades_24h: 5000
+    min_oi_usdt: 80000000
+    max_spread_bps: 5
+  strategy_filters:
+    scalping:
+      atr_pct_min: 0.8
+      atr_pct_max: 3.0
+      min_volume_mult: 1.5
+    intraday:
+      atr_pct_min: 0.5
+      atr_pct_max: 2.0
+      adx_min: 25
+    swing:
+      atr_pct_min: 0.4
+      atr_pct_max: 1.5
+    position:
+      atr_pct_max: 1.0
+    arbitrage:
+      basis_th: 0.0006
+      min_volume_mult: 2.0
+    hedging:
+      beta_min: 0.8
