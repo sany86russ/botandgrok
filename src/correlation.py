@@ -1,21 +1,14 @@
-
-import numpy as np
+import pandas as pd
 from typing import Dict, List
+from src.utils import float_safe
 
-def rolling_corr(returns: Dict[str, List[float]]) -> Dict[str, Dict[str, float]]:
-    syms = list(returns.keys())
-    out = {s: {} for s in syms}
-    for i,s1 in enumerate(syms):
-        r1 = np.array(returns[s1], dtype=float)
-        for s2 in syms[i+1:]:
-            r2 = np.array(returns[s2], dtype=float)
-            if len(r1) != len(r2) or len(r1) < 10:
-                c = 0.0
-            else:
-                c = float(np.corrcoef(r1, r2)[0,1])
-            out[s1][s2] = c
-            out[s2][s1] = c
-    return out
-
-def high_corr_bucket(symbol: str, active: List[str], corr: Dict[str, Dict[str, float]], th: float=0.8) -> List[str]:
-    return [s for s in active if abs(corr.get(symbol, {}).get(s, 0.0)) >= th]
+async def compute_correlation(api: Any, symbol: str, btc_data: List, klines: List) -> float:
+    if not klines or not btc_data or len(klines) < 20 or len(btc_data) < 20:
+        return 0.7  # Заглушка
+    df_symbol = pd.DataFrame(klines, columns=["timestamp", "open", "high", "low", "close", "volume"])
+    df_btc = pd.DataFrame(btc_data, columns=["timestamp", "open", "high", "low", "close", "volume"])
+    returns_symbol = df_symbol["close"].pct_change().dropna()
+    returns_btc = df_btc["close"].pct_change().dropna()
+    if len(returns_symbol) != len(returns_btc):
+        return 0.7
+    return float_safe(returns_symbol.corr(returns_btc))
