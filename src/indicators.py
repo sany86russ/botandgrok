@@ -4,6 +4,8 @@ import numpy as np
 from ta.momentum import RSIIndicator, StochasticOscillator, ADXIndicator
 from ta.trend import MACD, EMAIndicator
 from ta.volatility import BollingerBands, AverageTrueRange
+from ta.volume import OnBalanceVolumeIndicator
+from ta.trend import IchimokuIndicator
 
 def compute_indicators(kl_1m: List, kl_5m: List, kl_15m: List, kl_1h: List, kl_4h: List, kl_1d: List, kl_1w: List) -> Dict:
     result = {}
@@ -26,7 +28,9 @@ def compute_indicators(kl_1m: List, kl_5m: List, kl_15m: List, kl_1h: List, kl_4
         result[f"ema20_{timeframe}"] = EMAIndicator(df["close"], window=20).ema_indicator().iloc[-1]
         result[f"ema50_{timeframe}"] = EMAIndicator(df["close"], window=50).ema_indicator().iloc[-1]
         result[f"ema200_{timeframe}"] = EMAIndicator(df["close"], window=200).ema_indicator().iloc[-1]
-        # Fibonacci Retracement (для свинга)
+        result[f"obv_{timeframe}"] = OnBalanceVolumeIndicator(df["close"], df["volume"]).on_balance_volume().iloc[-1]
+        if timeframe in ["4h", "1d"]:
+            result[f"ichimoku_{timeframe}"] = IchimokuIndicator(df["high"], df["low"]).ichimoku_cloud().iloc[-1]
         if timeframe == "4h":
             high = df["high"].max()
             low = df["low"].min()
