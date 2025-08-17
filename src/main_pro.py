@@ -19,6 +19,7 @@ from src.strategies import ScalpingStrategy, IntradayStrategy, SwingStrategy, Po
 from src.telegram import send_tg, send_signal, command_loop
 from src.consensus import rank_and_filter
 from src.risk_manager import suggest_position_size, load_state, save_state, new_day, can_signal, register_signal_sent, register_trade_result, outcome_cooldown, is_symbol_blocked
+from src.risk_guard import risk_guard
 from src.rate_limiter import RateLimiter
 from src.metrics import init_db, insert_signal, close_signal, analyze_recent_performance
 from src.utils import float_safe
@@ -228,6 +229,8 @@ async def main():
                     adx = float_safe(s.get("adx", 0.0))
                     entry = s["entry"]
                     strategy_type = s["strategy_type"]
+                    if not await risk_guard(cfg, api, risk_state, s, open_map):
+                        continue
                     leverage = min(cfg.get("risk", {}).get("max_leverage", 45),
                                  max(cfg.get("risk", {}).get("min_leverage", 20),
                                      int(20 + (atr_pct * 1000) * (adx / 50))))
