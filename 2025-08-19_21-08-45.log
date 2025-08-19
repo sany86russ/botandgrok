@@ -1,0 +1,416 @@
+2025-08-19 21:08:48,778 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:08:48,780 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:08:58,707 INFO [api] [discover] after depth filter: 15
+2025-08-19 21:08:58,707 INFO [main] Universe size: 15, filtered: 15
+2025-08-19 21:09:05,330 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:09:08,883 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.84, funding_rate=0.000100
+2025-08-19 21:09:13,954 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:09:15,989 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:09:22,839 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000079
+2025-08-19 21:09:29,511 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.84, funding_rate=0.000100
+2025-08-19 21:09:36,443 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.84, funding_rate=0.000100
+2025-08-19 21:09:41,424 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:09:43,369 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.64, funding_rate=0.000100
+2025-08-19 21:09:47,976 INFO [strategies] Scalping signal for ADA/USDT:USDT: score=2, reasons=['Oversold Stoch', 'Volume breakout']
+2025-08-19 21:09:48,119 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:09:50,117 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.84, funding_rate=0.000072
+2025-08-19 21:09:57,383 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.83, funding_rate=0.000100
+2025-08-19 21:10:02,265 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:10:04,185 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.92, funding_rate=0.000050
+2025-08-19 21:10:10,838 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.79, funding_rate=0.000100
+2025-08-19 21:10:15,589 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:10:17,600 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.80, funding_rate=0.000048
+2025-08-19 21:10:25,275 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.76, funding_rate=0.000070
+2025-08-19 21:10:32,822 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:10:37,960 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:10:44,556 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:10:46,461 INFO [main] Found 22 candidates
+2025-08-19 21:10:46,462 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2377687434922038 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1612205371675808 adx=26.829045376724377', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.0284235929715846 adx=25.32890937489019', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3445301073528757 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3445301073528757 adx=30.494313199453874']
+2025-08-19 21:10:52,418 INFO [main] Sending signal: {'strategy_type': 'POSITION', 'symbol': 'ETH/USDT:USDT', 'side': 'long', 'score': 2, 'reasons': ['Above EMA200'], 'atr_pct': np.float64(2.3958071319021594), 'adx': 26.569947049879122, 'corr_btc': 0.7, 'entry': 4181.35, 'entry_low': np.float64(4131.2614592451055), 'entry_high': np.float64(4231.438540754896), 'tp1': np.float64(4622.129158643081), 'tp2': np.float64(5062.908317286161), 'tp3': np.float64(5503.6874759292405), 'sl': np.float64(3960.96042067846), 'qty_hint': np.float64(0.0031761937300071996), 'risk_usdt': 0.015909090909090907, 'leverage': 20, 'R_target': 2.0, 'note': '¬ысокий ADX и сильные reasons, но высокие риски из-за уровн€ левериджа.'}
+2025-08-19 21:10:59,300 INFO [main] Sending signal: {'strategy_type': 'HEDGING', 'symbol': 'XRP/USDT:USDT', 'side': 'short', 'score': 4, 'reasons': ['High BTC beta', 'BTC bearish trend'], 'atr_pct': np.float64(1.0284235929715846), 'adx': 25.32890937489019, 'corr_btc': 0.8768808897523093, 'funding_rate': 7.9e-05, 'entry': 2.9305, 'entry_low': np.float64(2.9154310233039835), 'entry_high': np.float64(2.945568976696016), 'tp1': np.float64(2.8702240932159353), 'tp2': np.float64(2.8099481864318707), 'tp3': np.float64(2.749672279647806), 'sl': np.float64(2.960637953392032), 'qty_hint': np.float64(13.196890563657906), 'risk_usdt': 0.015909090909090907, 'leverage': 25, 'R_target': 2.0, 'note': '¬ысокие шансы на успех, но высокий рычаг и сильна€ волатильность увеличивают риск.'}
+2025-08-19 21:11:11,395 INFO [main] Sending signal: {'strategy_type': 'HEDGING', 'symbol': 'LINK/USDT:USDT', 'side': 'short', 'score': 2, 'reasons': ['BTC bearish trend'], 'atr_pct': np.float64(2.1030960082662604), 'adx': 13.444118441690222, 'corr_btc': 0.6427746449547139, 'funding_rate': 0.0001, 'entry': 24.104, 'entry_low': np.float64(23.85053486908375), 'entry_high': np.float64(24.35746513091625), 'tp1': np.float64(23.090139476335), 'tp2': np.float64(22.076278952670002), 'tp3': np.float64(21.062418429005003), 'sl': np.float64(24.6109302618325), 'qty_hint': np.float64(0.6276638862150868), 'risk_usdt': 0.015909090909090907, 'leverage': 20, 'R_target': 2.0, 'note': '—игнал €вл€етс€ валидным, учитыва€ высокий ADX и хороший сдвиг коррел€ции BTC. –иск находитс€ на уровне 15% из-за высокой волатильности.'}
+2025-08-19 21:11:33,810 INFO [main] Sending signal: {'strategy_type': 'HEDGING', 'symbol': 'LTC/USDT:USDT', 'side': 'short', 'score': 4, 'reasons': ['High BTC beta', 'BTC bearish trend'], 'atr_pct': np.float64(1.1491505987509893), 'adx': 28.11125194007229, 'corr_btc': 0.8676915005343693, 'funding_rate': 0.0001, 'entry': 114.05, 'entry_low': np.float64(113.39469687106225), 'entry_high': np.float64(114.70530312893776), 'tp1': np.float64(111.42878748424899), 'tp2': np.float64(108.80757496849799), 'tp3': np.float64(106.18636245274698), 'sl': np.float64(115.3606062578755), 'qty_hint': np.float64(0.3034681624151481), 'risk_usdt': 0.015909090909090907, 'leverage': 25, 'R_target': 2.0, 'note': '—тратеги€ хеджировани€ с учетом сильных reasons и умеренным уровнем риска'}
+2025-08-19 21:11:43,102 INFO [main] Processed 22 allocated risks, sent 4 signals
+2025-08-19 21:11:43,108 INFO [main] Scan cycle complete: universe=15, filtered=15, candidates=22, signals=4, took 177.28s, p95 latency: 177.28s
+2025-08-19 21:11:58,385 INFO [main] Exchange resources closed
+2025-08-19 21:11:58,386 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:11:58,386 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:12:08,945 INFO [api] [discover] after depth filter: 15
+2025-08-19 21:12:08,946 INFO [main] Universe size: 15, filtered: 15
+2025-08-19 21:12:13,975 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:12:15,884 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.84, funding_rate=0.000100
+2025-08-19 21:12:21,065 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:12:23,085 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:12:29,694 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000079
+2025-08-19 21:12:36,283 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.84, funding_rate=0.000100
+2025-08-19 21:12:42,990 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.84, funding_rate=0.000100
+2025-08-19 21:12:47,781 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:12:49,710 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.64, funding_rate=0.000100
+2025-08-19 21:12:54,263 INFO [strategies] Scalping signal for ADA/USDT:USDT: score=2, reasons=['Oversold Stoch', 'Volume breakout']
+2025-08-19 21:12:54,405 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:12:56,470 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.84, funding_rate=0.000072
+2025-08-19 21:13:03,562 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.83, funding_rate=0.000100
+2025-08-19 21:13:08,188 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:13:10,123 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.92, funding_rate=0.000050
+2025-08-19 21:13:16,739 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.79, funding_rate=0.000100
+2025-08-19 21:13:21,367 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:13:23,362 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.80, funding_rate=0.000048
+2025-08-19 21:13:30,171 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.76, funding_rate=0.000070
+2025-08-19 21:13:36,779 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:13:41,475 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:13:48,109 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:13:50,042 INFO [main] Found 22 candidates
+2025-08-19 21:13:50,042 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2369435288367723 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1738448411137707 adx=26.829045376724377', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.030764747460845 adx=25.29589073117336', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.350023555228707 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.350023555228707 adx=30.494313199453874']
+2025-08-19 21:14:15,651 INFO [main] Processed 22 allocated risks, sent 0 signals
+2025-08-19 21:14:15,651 INFO [main] Scan cycle complete: universe=15, filtered=15, candidates=22, signals=0, took 137.27s, p95 latency: 175.28s
+2025-08-19 21:14:30,660 WARNING [utils] Retry 1/3: 'NoneType' object has no attribute 'getaddrinfo'
+2025-08-19 21:14:30,924 INFO [main] Exchange resources closed
+2025-08-19 21:14:30,925 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:14:30,926 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:14:41,907 INFO [api] [discover] after depth filter: 16
+2025-08-19 21:14:41,908 INFO [main] Universe size: 16, filtered: 16
+2025-08-19 21:14:47,876 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:14:49,834 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.84, funding_rate=0.000100
+2025-08-19 21:14:55,609 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:14:57,622 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:15:04,352 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000079
+2025-08-19 21:15:11,661 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:15:18,743 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:15:24,378 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:15:26,281 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.67, funding_rate=0.000100
+2025-08-19 21:15:31,703 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:15:33,729 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:15:41,627 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.85, funding_rate=0.000100
+2025-08-19 21:15:46,832 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:15:48,781 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.93, funding_rate=0.000050
+2025-08-19 21:15:55,874 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000100
+2025-08-19 21:16:00,545 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:16:02,575 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:16:10,364 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:16:17,136 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:16:21,888 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:16:30,369 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:16:37,519 INFO [strategies] Position signal for ARB/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:16:39,422 INFO [strategies] Hedging signal for ARB/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.70, funding_rate=0.000100
+2025-08-19 21:16:39,422 INFO [main] Found 23 candidates
+2025-08-19 21:16:39,423 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2388812471672106 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1762101314894848 adx=26.829045376724377', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.0329424041803186 adx=25.29589073117336', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3530700840467087 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3524997566414814 adx=30.494313199453874']
+2025-08-19 21:17:06,050 INFO [main] Processed 23 allocated risks, sent 0 signals
+2025-08-19 21:17:06,050 INFO [main] Scan cycle complete: universe=16, filtered=16, candidates=23, signals=0, took 155.13s, p95 latency: 175.06s
+2025-08-19 21:17:21,319 INFO [main] Exchange resources closed
+2025-08-19 21:17:21,320 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:17:21,320 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:17:45,725 INFO [api] [discover] after depth filter: 16
+2025-08-19 21:17:45,726 INFO [main] Universe size: 16, filtered: 16
+2025-08-19 21:17:51,289 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:17:53,806 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:17:58,317 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:18:00,364 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000100
+2025-08-19 21:18:07,126 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000079
+2025-08-19 21:18:13,749 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:18:20,411 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:18:25,188 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:18:27,189 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.67, funding_rate=0.000100
+2025-08-19 21:18:31,858 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:18:33,783 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:18:40,456 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.85, funding_rate=0.000100
+2025-08-19 21:18:45,177 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:18:47,091 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.93, funding_rate=0.000050
+2025-08-19 21:18:54,384 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000100
+2025-08-19 21:18:59,606 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:19:01,941 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.81, funding_rate=0.000048
+2025-08-19 21:19:08,645 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:19:15,170 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:19:19,894 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:19:26,504 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:19:33,199 INFO [strategies] Position signal for ARB/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:19:35,207 INFO [strategies] Hedging signal for ARB/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.70, funding_rate=0.000100
+2025-08-19 21:19:35,207 INFO [main] Found 23 candidates
+2025-08-19 21:19:35,207 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.240497459019696 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1769311923592958 adx=26.829045376724377', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.0369958049050705 adx=25.295890731173362', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.35251756618213 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3522642975961683 adx=30.494313199453874']
+2025-08-19 21:20:02,111 INFO [main] Processed 23 allocated risks, sent 0 signals
+2025-08-19 21:20:02,112 INFO [main] Scan cycle complete: universe=16, filtered=16, candidates=23, signals=0, took 160.79s, p95 latency: 174.80s
+2025-08-19 21:20:17,382 INFO [main] Exchange resources closed
+2025-08-19 21:20:17,383 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:20:17,383 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:20:28,346 INFO [api] [discover] after depth filter: 15
+2025-08-19 21:20:28,347 INFO [main] Universe size: 15, filtered: 15
+2025-08-19 21:20:33,525 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:20:35,462 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:20:40,101 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:20:42,089 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000100
+2025-08-19 21:20:48,861 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000079
+2025-08-19 21:20:56,061 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:21:03,374 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:21:07,868 INFO [strategies] Scalping signal for LINK/USDT:USDT: score=3, reasons=['Oversold RSI', 'Oversold Stoch', 'Bid imbalance']
+2025-08-19 21:21:08,010 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:21:10,041 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.67, funding_rate=0.000100
+2025-08-19 21:21:15,260 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:21:17,186 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:21:23,825 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.85, funding_rate=0.000100
+2025-08-19 21:21:29,057 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:21:31,066 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.93, funding_rate=0.000050
+2025-08-19 21:21:37,735 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000100
+2025-08-19 21:21:42,350 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:21:44,322 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:21:51,034 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:21:57,630 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:22:02,369 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:22:09,537 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:22:11,588 INFO [main] Found 22 candidates
+2025-08-19 21:22:11,588 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2414811081559234 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.17761155667984 adx=26.829045376724377', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.03635774089713 adx=25.295890731173362', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3535950169143276 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3535950169143276 adx=30.494313199453874']
+2025-08-19 21:22:34,869 INFO [main] Processed 22 allocated risks, sent 0 signals
+2025-08-19 21:22:34,869 INFO [main] Scan cycle complete: universe=15, filtered=15, candidates=22, signals=0, took 137.49s, p95 latency: 173.98s
+2025-08-19 21:22:50,138 INFO [main] Exchange resources closed
+2025-08-19 21:22:50,139 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:22:50,139 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:23:00,318 INFO [api] [discover] after depth filter: 15
+2025-08-19 21:23:00,319 INFO [main] Universe size: 15, filtered: 15
+2025-08-19 21:23:04,862 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:23:06,760 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:23:11,885 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:23:14,007 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000100
+2025-08-19 21:23:20,565 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000079
+2025-08-19 21:23:27,797 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:23:35,048 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:23:39,691 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:23:41,706 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.67, funding_rate=0.000100
+2025-08-19 21:23:46,331 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:23:48,254 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:23:54,906 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.85, funding_rate=0.000100
+2025-08-19 21:23:59,674 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:24:01,664 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.93, funding_rate=0.000050
+2025-08-19 21:24:08,213 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000100
+2025-08-19 21:24:13,440 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:24:15,389 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:24:22,012 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:24:28,648 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:24:33,426 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:24:40,096 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:24:41,999 INFO [main] Found 21 candidates
+2025-08-19 21:24:41,999 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2468811340870622 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1773208193931652 adx=26.829045376724377', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.043312365766629 adx=25.295890731173362', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3537919790955693 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3537919790955693 adx=30.494313199453874']
+2025-08-19 21:25:05,372 INFO [main] Processed 21 allocated risks, sent 0 signals
+2025-08-19 21:25:05,372 INFO [main] Scan cycle complete: universe=15, filtered=15, candidates=21, signals=0, took 135.23s, p95 latency: 173.16s
+2025-08-19 21:25:20,381 WARNING [utils] Retry 1/3: 'NoneType' object has no attribute 'getaddrinfo'
+2025-08-19 21:25:20,646 INFO [main] Exchange resources closed
+2025-08-19 21:25:20,647 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:25:20,647 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:25:31,769 INFO [api] [discover] after depth filter: 16
+2025-08-19 21:25:31,770 INFO [main] Universe size: 16, filtered: 16
+2025-08-19 21:25:36,328 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:25:38,244 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:25:42,842 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:25:44,837 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000100
+2025-08-19 21:25:51,529 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000079
+2025-08-19 21:25:58,226 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:26:04,885 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:26:09,423 INFO [strategies] Scalping signal for LINK/USDT:USDT: score=2, reasons=['Oversold Stoch', 'Bid imbalance']
+2025-08-19 21:26:09,563 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:26:11,453 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.67, funding_rate=0.000100
+2025-08-19 21:26:16,284 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:26:18,202 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:26:24,859 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.85, funding_rate=0.000100
+2025-08-19 21:26:29,501 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:26:31,507 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.93, funding_rate=0.000050
+2025-08-19 21:26:38,544 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000100
+2025-08-19 21:26:43,655 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:26:45,643 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:26:52,356 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:26:59,646 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:27:04,325 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:27:10,904 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:27:17,597 INFO [strategies] Position signal for ARB/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:27:19,519 INFO [strategies] Hedging signal for ARB/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.70, funding_rate=0.000100
+2025-08-19 21:27:19,520 INFO [main] Found 24 candidates
+2025-08-19 21:27:19,520 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2457207562843406 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1801270459540398 adx=26.822472887444807', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.041886929600674 adx=25.295890731173362', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3613697940389222 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3619418248595183 adx=30.494313199453874']
+2025-08-19 21:27:44,915 INFO [main] Processed 24 allocated risks, sent 0 signals
+2025-08-19 21:27:44,915 INFO [main] Scan cycle complete: universe=16, filtered=16, candidates=24, signals=0, took 144.27s, p95 latency: 172.33s
+2025-08-19 21:28:00,190 INFO [main] Exchange resources closed
+2025-08-19 21:28:00,191 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:28:00,191 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:28:10,943 INFO [api] [discover] after depth filter: 15
+2025-08-19 21:28:10,944 INFO [main] Universe size: 15, filtered: 15
+2025-08-19 21:28:15,724 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:28:17,648 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:28:22,716 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:28:24,727 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000100
+2025-08-19 21:28:31,871 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.89, funding_rate=0.000079
+2025-08-19 21:28:39,140 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:28:45,776 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:28:50,391 INFO [strategies] Scalping signal for LINK/USDT:USDT: score=2, reasons=['Oversold RSI', 'Oversold Stoch']
+2025-08-19 21:28:50,529 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:28:52,430 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.67, funding_rate=0.000100
+2025-08-19 21:28:57,154 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:28:59,074 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:29:05,834 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.85, funding_rate=0.000100
+2025-08-19 21:29:11,069 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:29:13,098 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.93, funding_rate=0.000050
+2025-08-19 21:29:19,608 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000100
+2025-08-19 21:29:24,830 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:29:26,845 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:29:33,474 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:29:40,079 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:29:44,908 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:29:51,495 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:29:53,398 INFO [main] Found 22 candidates
+2025-08-19 21:29:53,398 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2486092923471055 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1837922397993907 adx=26.7878751465149', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.0489229005009661 adx=25.29589073117336', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3643623753176195 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3643623753176195 adx=30.494313199453874']
+2025-08-19 21:30:17,866 INFO [main] Processed 22 allocated risks, sent 0 signals
+2025-08-19 21:30:17,866 INFO [main] Scan cycle complete: universe=15, filtered=15, candidates=22, signals=0, took 137.68s, p95 latency: 171.51s
+2025-08-19 21:30:33,136 INFO [main] Exchange resources closed
+2025-08-19 21:30:33,137 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:30:33,137 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:30:43,483 INFO [api] [discover] after depth filter: 15
+2025-08-19 21:30:43,483 INFO [main] Universe size: 15, filtered: 15
+2025-08-19 21:30:48,808 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:30:50,724 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:30:55,386 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:30:57,410 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000100
+2025-08-19 21:31:01,975 INFO [strategies] Scalping signal for XRP/USDT:USDT: score=2, reasons=['Oversold Stoch', 'Bid imbalance']
+2025-08-19 21:31:04,115 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000079
+2025-08-19 21:31:11,196 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:31:17,917 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:31:22,589 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:31:24,521 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.69, funding_rate=0.000100
+2025-08-19 21:31:29,336 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:31:31,267 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:31:37,984 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:31:42,696 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:31:44,615 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.92, funding_rate=0.000050
+2025-08-19 21:31:51,233 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.83, funding_rate=0.000100
+2025-08-19 21:31:55,823 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:31:57,842 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:32:04,491 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:32:11,214 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:32:15,802 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:32:22,480 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:32:24,410 INFO [main] Found 22 candidates
+2025-08-19 21:32:24,410 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2585366349523543 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1837988768942538 adx=26.7878751465149', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.0536852517878301 adx=25.295890731173362', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3657676832560524 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3650007929748735 adx=30.494313199453874']
+2025-08-19 21:32:48,289 INFO [main] Processed 22 allocated risks, sent 0 signals
+2025-08-19 21:32:48,289 INFO [main] Scan cycle complete: universe=15, filtered=15, candidates=22, signals=0, took 135.15s, p95 latency: 170.68s
+2025-08-19 21:33:03,294 WARNING [utils] Retry 1/3: 'NoneType' object has no attribute 'getaddrinfo'
+2025-08-19 21:33:03,556 INFO [main] Exchange resources closed
+2025-08-19 21:33:03,557 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:33:03,557 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:33:14,792 INFO [api] [discover] after depth filter: 15
+2025-08-19 21:33:14,793 INFO [main] Universe size: 15, filtered: 15
+2025-08-19 21:33:19,212 INFO [strategies] Scalping signal for ETH/USDT:USDT: score=2, reasons=['Oversold Stoch', 'Bid imbalance']
+2025-08-19 21:33:19,354 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:33:21,380 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:33:25,956 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:33:27,968 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000100
+2025-08-19 21:33:34,583 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000079
+2025-08-19 21:33:41,199 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:33:47,837 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:33:52,558 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:33:54,454 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.69, funding_rate=0.000100
+2025-08-19 21:33:59,145 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:34:01,036 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:34:05,643 INFO [strategies] Scalping signal for SUI/USDT:USDT: score=2, reasons=['Oversold Stoch', 'Bid imbalance']
+2025-08-19 21:34:07,686 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:34:12,972 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:34:14,865 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.92, funding_rate=0.000050
+2025-08-19 21:34:21,509 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.83, funding_rate=0.000100
+2025-08-19 21:34:26,215 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:34:28,231 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:34:35,350 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:34:42,124 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:34:46,865 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:34:53,492 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:34:55,526 INFO [main] Found 23 candidates
+2025-08-19 21:34:55,526 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.257476770129436 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1833145644743917 adx=26.7878751465149', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.0537213381350263 adx=25.295890731173362', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3651924347934303 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.364490011070023 adx=30.494313199453874']
+2025-08-19 21:35:19,924 INFO [main] Processed 23 allocated risks, sent 0 signals
+2025-08-19 21:35:19,924 INFO [main] Scan cycle complete: universe=15, filtered=15, candidates=23, signals=0, took 136.37s, p95 latency: 169.86s
+2025-08-19 21:35:34,944 WARNING [utils] Retry 1/3: 'NoneType' object has no attribute 'getaddrinfo'
+2025-08-19 21:35:35,210 INFO [main] Exchange resources closed
+2025-08-19 21:35:35,210 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:35:35,211 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:35:45,273 INFO [api] [discover] after depth filter: 15
+2025-08-19 21:35:45,273 INFO [main] Universe size: 15, filtered: 15
+2025-08-19 21:35:49,867 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:35:51,785 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:35:56,891 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:35:59,075 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000100
+2025-08-19 21:36:06,574 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000079
+2025-08-19 21:36:13,737 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:36:20,346 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:36:25,548 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:36:27,447 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.69, funding_rate=0.000100
+2025-08-19 21:36:32,742 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:36:34,678 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:36:41,396 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:36:46,207 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:36:48,100 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.92, funding_rate=0.000050
+2025-08-19 21:36:54,727 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.83, funding_rate=0.000100
+2025-08-19 21:36:59,353 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:37:01,387 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:37:08,013 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:37:14,746 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:37:19,560 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:37:26,171 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:37:28,107 INFO [main] Found 21 candidates
+2025-08-19 21:37:28,107 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2570665899299842 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.182559033099739 adx=26.7878751465149', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.0527118538407856 adx=25.295890731173362', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3631510255451413 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3625143366028036 adx=30.494313199453874']
+2025-08-19 21:37:52,157 INFO [main] Processed 21 allocated risks, sent 0 signals
+2025-08-19 21:37:52,157 INFO [main] Scan cycle complete: universe=15, filtered=15, candidates=21, signals=0, took 136.95s, p95 latency: 169.03s
+2025-08-19 21:38:07,414 INFO [main] Exchange resources closed
+2025-08-19 21:38:07,415 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:38:07,415 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:38:17,047 INFO [api] [discover] after depth filter: 14
+2025-08-19 21:38:17,047 INFO [main] Universe size: 14, filtered: 14
+2025-08-19 21:38:21,995 INFO [strategies] Scalping signal for ETH/USDT:USDT: score=2, reasons=['Oversold Stoch', 'Bid imbalance']
+2025-08-19 21:38:22,136 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:38:24,044 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:38:29,173 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:38:31,193 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000100
+2025-08-19 21:38:37,860 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000079
+2025-08-19 21:38:44,449 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:38:51,219 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:38:55,810 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:38:57,832 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.69, funding_rate=0.000100
+2025-08-19 21:39:03,032 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:39:04,952 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:39:11,629 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:39:18,324 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.83, funding_rate=0.000100
+2025-08-19 21:39:22,896 INFO [strategies] Scalping signal for AVAX/USDT:USDT: score=2, reasons=['Oversold Stoch', 'Bid imbalance']
+2025-08-19 21:39:22,944 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:39:24,921 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:39:31,571 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:39:38,116 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:39:43,347 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:39:50,002 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:39:51,970 INFO [main] Found 21 candidates
+2025-08-19 21:39:51,970 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2633708228411038 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.183918357329508 adx=26.7878751465149', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.0564467914094358 adx=25.29589073117336', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.366151451630498 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3660235048778284 adx=30.494313199453874']
+2025-08-19 21:40:14,333 INFO [main] Processed 21 allocated risks, sent 0 signals
+2025-08-19 21:40:14,333 INFO [main] Scan cycle complete: universe=14, filtered=14, candidates=21, signals=0, took 126.92s, p95 latency: 168.21s
+2025-08-19 21:40:29,618 INFO [main] Exchange resources closed
+2025-08-19 21:40:29,618 INFO [api] [discover] total perp USDT: 469
+2025-08-19 21:40:29,619 INFO [api] [discover] trending coins from RSS: 0
+2025-08-19 21:40:39,782 INFO [api] [discover] after depth filter: 15
+2025-08-19 21:40:39,783 INFO [main] Universe size: 15, filtered: 15
+2025-08-19 21:40:45,508 INFO [strategies] Scalping signal for ETH/USDT:USDT: score=2, reasons=['Oversold Stoch', 'Bid imbalance']
+2025-08-19 21:40:45,647 INFO [strategies] Position signal for ETH/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:40:47,583 INFO [strategies] Hedging signal for ETH/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:40:52,177 INFO [strategies] Intraday signal for SOL/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:40:54,293 INFO [strategies] Hedging signal for SOL/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000100
+2025-08-19 21:41:01,288 INFO [strategies] Hedging signal for XRP/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.90, funding_rate=0.000079
+2025-08-19 21:41:08,468 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:41:15,063 INFO [strategies] Hedging signal for DOGE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.87, funding_rate=0.000100
+2025-08-19 21:41:19,660 INFO [strategies] Scalping signal for LINK/USDT:USDT: score=2, reasons=['Oversold RSI', 'Oversold Stoch']
+2025-08-19 21:41:19,797 INFO [strategies] Position signal for LINK/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:41:21,802 INFO [strategies] Hedging signal for LINK/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.69, funding_rate=0.000100
+2025-08-19 21:41:26,931 INFO [strategies] Position signal for ADA/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:41:29,009 INFO [strategies] Hedging signal for ADA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000072
+2025-08-19 21:41:35,473 INFO [strategies] Hedging signal for SUI/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.86, funding_rate=0.000100
+2025-08-19 21:41:40,178 INFO [strategies] Position signal for ENA/USDT:USDT: score=2, reasons=['Above EMA200']
+2025-08-19 21:41:42,708 INFO [strategies] Hedging signal for ENA/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.92, funding_rate=0.000050
+2025-08-19 21:41:49,755 INFO [strategies] Hedging signal for AAVE/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.83, funding_rate=0.000100
+2025-08-19 21:41:54,401 INFO [strategies] Intraday signal for AVAX/USDT:USDT: score=2, reasons=['Trending market', 'BB squeeze']
+2025-08-19 21:41:56,354 INFO [strategies] Hedging signal for AVAX/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.82, funding_rate=0.000048
+2025-08-19 21:42:00,919 INFO [strategies] Scalping signal for FARTCOIN/USDT:USDT: score=2, reasons=['Oversold RSI', 'Oversold Stoch']
+2025-08-19 21:42:03,050 INFO [strategies] Hedging signal for FARTCOIN/USDT:USDT: score=2, reasons=['BTC bearish trend'], beta=0.80, funding_rate=0.000070
+2025-08-19 21:42:10,154 INFO [strategies] Hedging signal for LTC/USDT:USDT: score=4, reasons=['High BTC beta', 'BTC bearish trend'], beta=0.88, funding_rate=0.000100
+2025-08-19 21:42:14,839 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:42:21,482 INFO [strategies] Position signal for BIO/USDT:USDT: score=3, reasons=['Above EMA200', 'Ichimoku bullish']
+2025-08-19 21:42:23,511 INFO [main] Found 24 candidates
+2025-08-19 21:42:23,511 INFO [main] Top 5 candidates: ['ETH/USDT:USDT HEDGING score=4 atr_pct=1.2786412091614137 adx=19.137332066294626', 'SOL/USDT:USDT HEDGING score=4 atr_pct=1.1842304477571393 adx=26.7878751465149', 'XRP/USDT:USDT HEDGING score=4 atr_pct=1.0560485693991037 adx=25.29589073117336', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3664074170530716 adx=30.494313199453874', 'DOGE/USDT:USDT HEDGING score=4 atr_pct=1.3674963410212837 adx=30.494313199453874']
+2025-08-19 21:42:47,888 INFO [main] Processed 24 allocated risks, sent 0 signals
+2025-08-19 21:42:47,888 INFO [main] Scan cycle complete: universe=15, filtered=15, candidates=24, signals=0, took 138.27s, p95 latency: 167.39s
+2025-08-19 21:42:52,925 INFO [main] Exchange resources closed
+2025-08-19 21:42:52,926 INFO [main] Bot stopped by user
